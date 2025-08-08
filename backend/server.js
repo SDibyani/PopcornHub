@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -8,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/netflix",{
+mongoose.connect(process.env.MONGODB_URI ,{
     // useNewUrlParser: true,
     // useUnifiedTopology: true,
 })
@@ -18,4 +20,6 @@ mongoose.connect("mongodb://localhost:27017/netflix",{
 
 
   app.use("/api/user", userRoutes);
-app.listen(5000, console.log('Server is running on port 5000'));
+const PORT = process.env.PORT ;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+
