@@ -1,0 +1,9 @@
+@import "@animxyz/core";
+@import "tailwindcss";
+
+
+body {
+  margin: 0;
+  background-color: black;
+}
+
