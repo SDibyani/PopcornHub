@@ -4,6 +4,10 @@ A full-featured movie streaming web application built with **React.js**, **Fireb
 Users can sign up, log in securely, browse trending movies, and stream trailers.
 
 ---
+
+Live Demo: https://popcornhub-4.onrender.com
+
+---
 ## 🛠️ Tech Stack
 
 - **Frontend:** React.js, Tailwind CSS 
