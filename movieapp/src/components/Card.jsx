@@ -6,11 +6,13 @@ import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BsCheck } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
-import axios from "axios";
+// import axios from "axios";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase-config";
 import { useDispatch } from "react-redux";
 import { removeMovieFromLiked } from "../store";
+import API from "../api/api";
+
 
 
  function Card({ movieData, isLiked = false }) {
@@ -27,16 +29,32 @@ const dispatch= useDispatch();
 }
 );
 
+
+
+    
+
+// const addToList = async () => {
+//     try {
+//       await axios.post("http://localhost:5000/api/user/add", {
+//         email,
+//         data: movieData,
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+
+
 const addToList = async () => {
-    try {
-      await axios.post("http://localhost:5000/api/user/add", {
-        email,
-        data: movieData,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    await API.post("/api/user/add", {
+      email,
+      data: movieData,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
   return (
     <Container
